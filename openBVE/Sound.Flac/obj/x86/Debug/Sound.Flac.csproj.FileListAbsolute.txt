@@ -1,0 +1,5 @@
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\Sound.Flac\bin\Debug\Sound.Flac.dll
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\Sound.Flac\bin\Debug\Sound.Flac.pdb
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\Sound.Flac\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\Sound.Flac\obj\x86\Debug\Sound.Flac.dll
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\Sound.Flac\obj\x86\Debug\Sound.Flac.pdb

@@ -1,0 +1,12 @@
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\OpenBve.formImage.resources
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\OpenBve.formMain.resources
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\bin\Debug\OpenBve.exe
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\bin\Debug\OpenBve.pdb
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\bin\Debug\OpenBveApi.dll
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\bin\Debug\OpenBveApi.pdb
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\bin\Debug\OpenBveApi.xml
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\OpenBve.exe
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\OpenBve.pdb

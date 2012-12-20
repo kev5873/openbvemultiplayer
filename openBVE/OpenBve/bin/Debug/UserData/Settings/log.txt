@@ -1,0 +1,23 @@
+﻿Red is required to be within the range from 0 to 255 in Transparent at line 63 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r143_l.b3d
+Red is required to be within the range from 0 to 255 in Transparent at line 118 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r143_l.b3d
+Red is required to be within the range from 0 to 255 in Transparent at line 176 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r143_l.b3d
+Red is required to be within the range from 0 to 255 in Transparent at line 232 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r143_l.b3d
+Blue is required to be within the range from 0 to 255 in Transparent at line 62 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r62_3.b3d
+Blue is required to be within the range from 0 to 255 in Transparent at line 117 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r62_3.b3d
+Blue is required to be within the range from 0 to 255 in Transparent at line 175 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r62_3.b3d
+Blue is required to be within the range from 0 to 255 in Transparent at line 231 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r62_3.b3d
+Red is required to be within the range from 0 to 255 in Transparent at line 269 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r62_3.b3d
+Red is required to be within the range from 0 to 255 in Transparent at line 287 in file C:\Program Files (x86)\BVE\Railway\Object\nyct\cars\r62_3.b3d
+GroundStructureIndex1 is out of range in cycle.ground at line 239, column 1 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+GroundStructureIndex1 is out of range in cycle.ground at line 240, column 1 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+GroundStructureIndex1 is out of range in cycle.ground at line 241, column 1 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+GroundStructureIndex1 is out of range in cycle.ground at line 242, column 1 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex references a non-existing rail in track.railend at line 306, column 6 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex references a non-existing rail in track.railend at line 527, column 6 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex is required to reference a non-existing rail in track.railstart at line 538, column 5 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex could be out of range in Track.FreeObj at line 538, column 7 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex could be out of range in Track.FreeObj at line 538, column 8 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex could be out of range in Track.FreeObj at line 583, column 4 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex could be out of range in Track.FreeObj at line 586, column 9 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex could be out of range in Track.FreeObj at line 602, column 7 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv
+RailIndex could be out of range in Track.FreeObj at line 604, column 4 in file C:\Program Files (x86)\BVE\Railway\Route\NYCT-L\NYCT-L.csv

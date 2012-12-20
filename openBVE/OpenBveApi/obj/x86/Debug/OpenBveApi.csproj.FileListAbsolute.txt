@@ -1,0 +1,6 @@
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\bin\Debug\OpenBveApi.dll
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\bin\Debug\OpenBveApi.pdb
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\bin\Debug\OpenBveApi.xml
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\obj\x86\Debug\OpenBveApi.dll
+C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\obj\x86\Debug\OpenBveApi.pdb
