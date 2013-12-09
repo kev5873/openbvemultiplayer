@@ -83,10 +83,6 @@ namespace OpenBve {
 				radiobuttonOptions.AutoSize = false;
 				radiobuttonOptions.Size = new Size(buttonClose.Width, buttonClose.Height);
 				radiobuttonOptions.TextAlign = ContentAlignment.MiddleCenter;
-				radiobuttonGetAddOns.Appearance = Appearance.Button;
-				radiobuttonGetAddOns.AutoSize = false;
-				radiobuttonGetAddOns.Size = new Size(buttonClose.Width, buttonClose.Height);
-				radiobuttonGetAddOns.TextAlign = ContentAlignment.MiddleCenter;
 			}
 			// options
 			Interface.LoadLogs();
@@ -357,30 +353,6 @@ namespace OpenBve {
 			}
 			// lists
 			ShowScoreLog(checkboxScorePenalties.Checked);
-			// get add-ons
-			checkboxFilterRoutes.Image = RouteIcon;
-			checkboxFilterTrains.Image = TrainIcon;
-			checkboxFilterLibraries.Image = LibraryIcon;
-			checkboxFilterSharedLibraries.Image = LibraryIcon;
-			treeviewPackages.ImageList = new ImageList();
-			treeviewPackages.ImageList.Images.Add("route_notinstalled", LoadImage(MenuFolder, "icon_route_notinstalled.png"));
-			treeviewPackages.ImageList.Images.Add("route_outdatedversion", LoadImage(MenuFolder, "icon_route_outdatedversion.png"));
-			treeviewPackages.ImageList.Images.Add("route_latestversion", LoadImage(MenuFolder, "icon_route_latestversion.png"));
-			treeviewPackages.ImageList.Images.Add("route_protected", LoadImage(MenuFolder, "icon_route_protected.png"));
-			treeviewPackages.ImageList.Images.Add("train_notinstalled", LoadImage(MenuFolder, "icon_train_notinstalled.png"));
-			treeviewPackages.ImageList.Images.Add("train_outdatedversion", LoadImage(MenuFolder, "icon_train_outdatedversion.png"));
-			treeviewPackages.ImageList.Images.Add("train_latestversion", LoadImage(MenuFolder, "icon_train_latestversion.png"));
-			treeviewPackages.ImageList.Images.Add("train_protected", LoadImage(MenuFolder, "icon_train_protected.png"));
-			treeviewPackages.ImageList.Images.Add("library_notinstalled", LoadImage(MenuFolder, "icon_library_notinstalled.png"));
-			treeviewPackages.ImageList.Images.Add("library_outdatedversion", LoadImage(MenuFolder, "icon_library_outdatedversion.png"));
-			treeviewPackages.ImageList.Images.Add("library_latestversion", LoadImage(MenuFolder, "icon_library_latestversion.png"));
-			treeviewPackages.ImageList.Images.Add("library_protected", LoadImage(MenuFolder, "icon_library_protected.png"));
-			treeviewPackages.ImageList.Images.Add("folder", LoadImage(MenuFolder, "icon_folder.png"));
-			foreach (string flag in flags) {
-				try {
-					treeviewPackages.ImageList.Images.Add(System.IO.Path.GetFileNameWithoutExtension(flag), Image.FromFile(flag));
-				} catch { }
-			}
 			// result
 			Result.Start = false;
 //			Result.RouteFile = null;
@@ -394,11 +366,9 @@ namespace OpenBve {
 			// panel
 			radiobuttonStart.Text = Interface.GetInterfaceString("panel_start");
 			radiobuttonReview.Text = Interface.GetInterfaceString("panel_review");
-			radiobuttonGetAddOns.Text = Interface.GetInterfaceString("panel_getaddons");
 			radiobuttonControls.Text = Interface.GetInterfaceString("panel_controls");
 			radiobuttonOptions.Text = Interface.GetInterfaceString("panel_options");
 			linkHomepage.Text = Interface.GetInterfaceString("panel_homepage");
-			linkUpdates.Text = Interface.GetInterfaceString("panel_updates");
 			buttonClose.Text = Interface.GetInterfaceString("panel_close");
 			// options
 			labelOptionsTitle.Text = Interface.GetInterfaceString("options_title");
@@ -484,20 +454,6 @@ namespace OpenBve {
 			comboboxMode.Items[0] = Interface.GetInterfaceString("mode_arcade");
 			comboboxMode.Items[1] = Interface.GetInterfaceString("mode_normal");
 			comboboxMode.Items[2] = Interface.GetInterfaceString("mode_expert");
-			// getaddons
-			labelGetAddOnsTitle.Text = Interface.GetInterfaceString("getaddons_title");
-			labelFilter.Text = Interface.GetInterfaceString("getaddons_filter");
-			checkboxFilterRoutes.Text = Interface.GetInterfaceString("getaddons_filter_routes");
-			checkboxFilterTrains.Text = Interface.GetInterfaceString("getaddons_filter_trains");
-			checkboxFilterLibraries.Text = Interface.GetInterfaceString("getaddons_filter_libraries");
-			checkboxFilterSharedLibraries.Text = Interface.GetInterfaceString("getaddons_filter_sharedlibraries");
-			checkboxFilterNoWIPs.Text = Interface.GetInterfaceString("getaddons_filter_nowips");
-			checkboxFilterUpdates.Text = Interface.GetInterfaceString("getaddons_filter_onlyupdates");
-			groupboxPackage.Text = Interface.GetInterfaceString("getaddons_package");
-			buttonPackageInstall.Text = Interface.GetInterfaceString("getaddons_package_install");
-			buttonPackageRemove.Text = Interface.GetInterfaceString("getaddons_package_remove");
-			buttonScreenshotPrevious.Text = Interface.GetInterfaceString("getaddons_screenshot_previous");
-			buttonScreenshotNext.Text = Interface.GetInterfaceString("getaddons_screenshot_next");
 			// review
 			labelReviewTitle.Text = Interface.GetInterfaceString("review_title");
 			labelConditions.Text = " " + Interface.GetInterfaceString("review_conditions");
@@ -595,11 +551,6 @@ namespace OpenBve {
 
 		// form closing
 		private void formMain_FormClosing(object sender, FormClosingEventArgs e) {
-			if (IsBusy()) {
-				MessageBox.Show("The form cannot be closed because add-ons are currently being maintained.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				e.Cancel = true;
-				return;
-			}
 			Interface.CurrentOptions.LanguageCode = CurrentLanguageCode;
 			Interface.CurrentOptions.FullscreenMode = radiobuttonFullscreen.Checked;
 			Interface.CurrentOptions.VerticalSynchronization = comboboxVSync.SelectedIndex == 1;
@@ -718,9 +669,6 @@ namespace OpenBve {
 				Array.Resize<Interface.EncodingValue>(ref a, n);
 				Interface.CurrentOptions.TrainEncodings = a;
 			}
-			// clear cache
-			string directory = System.IO.Path.Combine(Program.FileSystem.SettingsFolder, "Cache");
-			ClearCache(directory, NumberOfDaysScreenshotsAreCached);
 			// finish
 			#if !DEBUG
 			try {
@@ -889,14 +837,12 @@ namespace OpenBve {
 			panelReview.Visible = false;
 			panelControls.Visible = false;
 			panelOptions.Visible = false;
-			panelGetAddOns.Visible = false;
 			panelPanels.BackColor = labelStartTitle.BackColor;
 			pictureboxJoysticks.Visible = false;
 			radiobuttonStart.BackColor = SystemColors.ButtonHighlight;
 			radiobuttonReview.BackColor = SystemColors.ButtonFace;
 			radiobuttonControls.BackColor = SystemColors.ButtonFace;
 			radiobuttonOptions.BackColor = SystemColors.ButtonFace;
-			radiobuttonGetAddOns.BackColor = SystemColors.ButtonFace;
 			UpdateRadioButtonBackColor();
 		}
 		private void radiobuttonReview_CheckedChanged(object sender, EventArgs e) {
@@ -904,14 +850,12 @@ namespace OpenBve {
 			panelStart.Visible = false;
 			panelControls.Visible = false;
 			panelOptions.Visible = false;
-			panelGetAddOns.Visible = false;
 			panelPanels.BackColor = labelReviewTitle.BackColor;
 			pictureboxJoysticks.Visible = false;
 			radiobuttonStart.BackColor = SystemColors.ButtonFace;
 			radiobuttonReview.BackColor = SystemColors.ButtonHighlight;
 			radiobuttonControls.BackColor = SystemColors.ButtonFace;
 			radiobuttonOptions.BackColor = SystemColors.ButtonFace;
-			radiobuttonGetAddOns.BackColor = SystemColors.ButtonFace;
 			UpdateRadioButtonBackColor();
 		}
 		private void radiobuttonControls_CheckedChanged(object sender, EventArgs e) {
@@ -919,14 +863,12 @@ namespace OpenBve {
 			panelStart.Visible = false;
 			panelReview.Visible = false;
 			panelOptions.Visible = false;
-			panelGetAddOns.Visible = false;
 			panelPanels.BackColor = labelControlsTitle.BackColor;
 			pictureboxJoysticks.Visible = true;
 			radiobuttonStart.BackColor = SystemColors.ButtonFace;
 			radiobuttonReview.BackColor = SystemColors.ButtonFace;
 			radiobuttonControls.BackColor = SystemColors.ButtonHighlight;
 			radiobuttonOptions.BackColor = SystemColors.ButtonFace;
-			radiobuttonGetAddOns.BackColor = SystemColors.ButtonFace;
 			UpdateRadioButtonBackColor();
 		}
 		private void radiobuttonOptions_CheckedChanged(object sender, EventArgs e) {
@@ -934,33 +876,13 @@ namespace OpenBve {
 			panelStart.Visible = false;
 			panelReview.Visible = false;
 			panelControls.Visible = false;
-			panelGetAddOns.Visible = false;
 			panelPanels.BackColor = labelOptionsTitle.BackColor;
 			pictureboxJoysticks.Visible = false;
 			radiobuttonStart.BackColor = SystemColors.ButtonFace;
 			radiobuttonReview.BackColor = SystemColors.ButtonFace;
 			radiobuttonControls.BackColor = SystemColors.ButtonFace;
 			radiobuttonOptions.BackColor = SystemColors.ButtonHighlight;
-			radiobuttonGetAddOns.BackColor = SystemColors.ButtonFace;
 			UpdateRadioButtonBackColor();
-		}
-		private void RadiobuttonGetAddOnsCheckedChanged(object sender, EventArgs e) {
-			panelGetAddOns.Visible = true;
-			panelStart.Visible = false;
-			panelReview.Visible = false;
-			panelControls.Visible = false;
-			panelOptions.Visible = false;
-			panelPanels.BackColor = labelGetAddOnsTitle.BackColor;
-			pictureboxJoysticks.Visible = false;
-			radiobuttonStart.BackColor = SystemColors.ButtonFace;
-			radiobuttonReview.BackColor = SystemColors.ButtonFace;
-			radiobuttonControls.BackColor = SystemColors.ButtonFace;
-			radiobuttonOptions.BackColor = SystemColors.ButtonFace;
-			radiobuttonGetAddOns.BackColor = SystemColors.ButtonHighlight;
-			UpdateRadioButtonBackColor();
-			if (radiobuttonGetAddOns.Checked) {
-				EnterGetAddOns();
-			}
 		}
 		private void UpdateRadioButtonBackColor() {
 			// work-around for button-style radio buttons on Mono
@@ -969,7 +891,6 @@ namespace OpenBve {
 				radiobuttonReview.BackColor = panelPanels.BackColor;
 				radiobuttonControls.BackColor = panelPanels.BackColor;
 				radiobuttonOptions.BackColor = panelPanels.BackColor;
-				radiobuttonGetAddOns.BackColor = panelPanels.BackColor;
 			}
 		}
 
@@ -983,85 +904,6 @@ namespace OpenBve {
 			}
 		}
 
-		// updates
-		private static bool CurrentlyCheckingForUpdates = false;
-		private void linkUpdates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-			if (CurrentlyCheckingForUpdates) {
-				return;
-			}
-			const string url = "http://www.example.com";
-			CurrentlyCheckingForUpdates = true;
-			this.Cursor = Cursors.WaitCursor;
-			Application.DoEvents();
-			try {
-				byte[] bytes = Internet.DownloadBytesFromUrl(url);
-				System.Text.Encoding Encoding = new System.Text.UTF8Encoding();
-				string Text = Encoding.GetString(bytes);
-				string[] Lines = Text.Split(new char[] { '\r', '\n' });
-				if (Lines.Length == 0 || !Lines[0].Equals("$OpenBveVersionInformation", StringComparison.OrdinalIgnoreCase)) {
-					MessageBox.Show(Interface.GetInterfaceString("panel_updates_invalid"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-				} else {
-					string StableVersion = "0.0.0.0";
-					string StableDate = "0000-00-00";
-					string DevelopmentVersion = "0.0.0.0";
-					string DevelopmentDate = "0000-00-00";
-					int i; for (i = 1; i < Lines.Length; i++) {
-						if (Lines[i].Equals("----")) break;
-						int h = Lines[i].IndexOf('=');
-						if (h >= 0) {
-							string a = Lines[i].Substring(0, h).TrimEnd();
-							string b = Lines[i].Substring(h + 1).TrimStart();
-							if (a.Equals("version", StringComparison.OrdinalIgnoreCase)) {
-								StableVersion = b;
-							} else if (a.Equals("date", StringComparison.OrdinalIgnoreCase)) {
-								StableDate = b;
-							} else if (a.Equals("developmentversion", StringComparison.OrdinalIgnoreCase)) {
-								DevelopmentVersion = b;
-							} else if (a.Equals("developmentdate", StringComparison.OrdinalIgnoreCase)) {
-								DevelopmentDate = b;
-							}
-						}
-					}
-					StringBuilder StableText = new StringBuilder();
-					StringBuilder DevelopmentText = new StringBuilder();
-					int j; for (j = i + 1; j < Lines.Length; j++) {
-						if (Lines[j].Equals("----")) break;
-						StableText.AppendLine(Lines[j]);
-					}
-					for (int k = j + 1; k < Lines.Length; k++) {
-						if (Lines[k].Equals("----")) break;
-						DevelopmentText.AppendLine(Lines[k]);
-					}
-					bool Found = false;
-					if (ManagedContent.CompareVersions(Application.ProductVersion, StableVersion) < 0) {
-						string Message = Interface.GetInterfaceString("panel_updates_new") + StableText.ToString().Trim();
-						Message = Message.Replace("[version]", StableVersion);
-						Message = Message.Replace("[date]", StableDate);
-						MessageBox.Show(Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-						Found = true;
-					}
-					#pragma warning disable 0162 // Unreachable code
-					if (Program.IsDevelopmentVersion) {
-						if (ManagedContent.CompareVersions(Application.ProductVersion, DevelopmentVersion) < 0) {
-							string Message = Interface.GetInterfaceString("panel_updates_new") + DevelopmentText.ToString().Trim();
-							Message = Message.Replace("[version]", DevelopmentVersion);
-							Message = Message.Replace("[date]", DevelopmentDate);
-							MessageBox.Show(Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-							Found = true;
-						}
-					}
-					#pragma warning restore 0162 // Unreachable code
-					if (!Found) {
-						string Message = Interface.GetInterfaceString("panel_updates_old");
-						MessageBox.Show(Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-					}
-				}
-			} catch (Exception ex) {
-				MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Hand);
-			}
-			this.Cursor = Cursors.Default;
-			CurrentlyCheckingForUpdates = false;
-		}
 
 		// close
 		private void buttonClose_Click(object sender, EventArgs e) {

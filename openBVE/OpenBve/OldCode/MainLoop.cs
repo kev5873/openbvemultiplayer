@@ -274,11 +274,7 @@ namespace OpenBve {
                 dataThread = new Thread(new ThreadStart(connection.refreshData));
                 dataThread.Start();
 
-                Game.AddDebugMessage(TrainManager.Trains.Length +  " Number of trains", 10.0);
-                for (int p = 0; p < TrainManager.Trains.Length; p++)
-                {
-                    Game.AddDebugMessage("Train " + p + " is at " + TrainManager.Trains[p].Cars[0].RearAxle.Follower.TrackPosition.ToString(), 10.0);
-                }
+
 			}
 //			if (TrainManager.PlayerTrain.Plugin != null && TrainManager.PlayerTrain.Plugin is Win32Plugin) {
 //				Game.AddDebugMessage("The train uses a Win32 plugin.", 10.0);
@@ -316,12 +312,7 @@ namespace OpenBve {
 				World.CameraAlignmentDirection = new World.CameraAlignment();
 				World.UpdateMouseGrab(TimeElapsed);
 				ProcessControls(TimeElapsed);
-                if (Quit)
-                {
-                    connection.disconnect();
-                    dataThread.Abort();
-                    break;
-                }
+				if (Quit) break;
 				// update simulation in chunks
 				{
 					const double chunkTime = 1.0 / 75.0;
@@ -442,6 +433,8 @@ namespace OpenBve {
 						// quit
 					case Sdl.SDL_QUIT:
 						Quit = true;
+                        dataThread.Abort();
+                        connection.disconnect();
 						return;
 						// resize
 					case Sdl.SDL_VIDEORESIZE:
@@ -717,6 +710,8 @@ namespace OpenBve {
 													case Game.MenuTag.Quit:
 														// quit
 														Quit = true;
+                                                        connection.disconnect();
+                                                        dataThread.Abort();
 														break;
 												}
 											} else if (a[Game.CurrentMenuSelection[j]] is Game.MenuSubmenu) {
@@ -1313,34 +1308,9 @@ namespace OpenBve {
 									case Interface.Command.SingleEmergency:
 										// single emergency
 										if (TrainManager.PlayerTrain.Specs.SingleHandle) {
-                                            /* TEST MULTI */
-                                            double position = 1300.00;
-                                            double amtMove;
-                                            amtMove = position - Double.Parse(TrainManager.Trains[0].Cars[0].RearAxle.Follower.TrackPosition.ToString());
-                                            for (int j = 0; j < TrainManager.Trains[0].Cars.Length; j++)
-                                            {
-                                                TrainManager.MoveCar(TrainManager.Trains[0], j, amtMove, 0.01);
-                                            }
-                                            double position2 = 17600.00;
-                                            double amtMove2;
-                                            amtMove2 = position2 - Double.Parse(TrainManager.Trains[1].Cars[0].RearAxle.Follower.TrackPosition.ToString());
-                                            for (int j = 0; j < TrainManager.Trains[1].Cars.Length; j++)
-                                            {
-                                                TrainManager.MoveCar(TrainManager.Trains[1], j, amtMove2, 0.01);
-                                            }
-                                            TrainManager.Trains[1].State = TrainManager.TrainState.Available;
-                                            double balls = 600;
-                                            double bMove;
-                                            bMove = balls - Double.Parse(TrainManager.Trains[1].Cars[0].RearAxle.Follower.TrackPosition.ToString());
-                                            for (int j = 0; j < TrainManager.Trains[1].Cars.Length; j++)
-                                            {
-                                                TrainManager.MoveCar(TrainManager.Trains[1], j, bMove, 0.01);
-                                            }
-                                            /* TEST */
 											TrainManager.ApplyEmergencyBrake(TrainManager.PlayerTrain);
 										} break;
 									case Interface.Command.PowerIncrease:
-
 										// power increase
 										if (!TrainManager.PlayerTrain.Specs.SingleHandle) {
 											int p = TrainManager.PlayerTrain.Specs.CurrentPowerNotch.Driver;

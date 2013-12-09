@@ -129,11 +129,11 @@ namespace OpenBve {
 				this.FullscreenHeight = 768;
 				this.FullscreenBits = 32;
 				this.UserInterfaceFolder = "Default";
-				this.Interpolation = Interface.InterpolationMode.AnisotropicFiltering;
+				this.Interpolation = Interface.InterpolationMode.BilinearMipmapped;
 				this.TransparencyMode = Renderer.TransparencyMode.Quality;
-				this.AnisotropicFilteringLevel = 4;
+				this.AnisotropicFilteringLevel = 0;
 				this.AnisotropicFilteringMaximum = 0;
-				this.AntiAliasingLevel = 4;
+				this.AntiAliasingLevel = 0;
 				this.ViewingDistance = 600;
 				this.MotionBlur = MotionBlurMode.None;
 				this.Toppling = true;

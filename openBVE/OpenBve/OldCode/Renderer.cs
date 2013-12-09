@@ -312,7 +312,7 @@ namespace OpenBve {
 			if (LoadTexturesImmediately == LoadTextureImmediatelyMode.NotYet) {
 				LoadTexturesImmediately = LoadTextureImmediatelyMode.Yes;
 			}
-			// setup camera
+			// set up camera
 			double cx = World.AbsoluteCameraPosition.X;
 			double cy = World.AbsoluteCameraPosition.Y;
 			double cz = World.AbsoluteCameraPosition.Z;
@@ -493,6 +493,7 @@ namespace OpenBve {
 			Glu.gluLookAt(0.0, 0.0, 0.0, dx, dy, dz, ux, uy, uz);
 			if (World.CameraRestriction == World.CameraRestrictionMode.NotAvailable) {
 				// 3d cab
+				ResetOpenGlState(); // TODO: inserted
 				Gl.glDepthMask(Gl.GL_TRUE);
 				Gl.glEnable(Gl.GL_DEPTH_TEST);
 				Gl.glClear(Gl.GL_DEPTH_BUFFER_BIT);
@@ -500,8 +501,8 @@ namespace OpenBve {
 					Gl.glEnable(Gl.GL_LIGHTING); LightingEnabled = true;
 				}
 				OptionLighting = true;
-				Gl.glLightfv(Gl.GL_LIGHT0, Gl.GL_AMBIENT, new float[] { 0.6f, 0.6f, 0.6f, 1.0f });
-				Gl.glLightfv(Gl.GL_LIGHT0, Gl.GL_DIFFUSE, new float[] { 0.6f, 0.6f, 0.6f, 1.0f });
+				Gl.glLightfv(Gl.GL_LIGHT0, Gl.GL_AMBIENT, new float[] { 0.7f, 0.7f, 0.7f, 1.0f });
+				Gl.glLightfv(Gl.GL_LIGHT0, Gl.GL_DIFFUSE, new float[] { 0.7f, 0.7f, 0.7f, 1.0f });
 				// overlay opaque
 				SetAlphaFunc(Gl.GL_GREATER, 0.9f);
 				for (int i = 0; i < OverlayOpaque.FaceCount; i++) {
@@ -552,7 +553,7 @@ namespace OpenBve {
 			} else {
 				// not a 3d cab
 				if (LightingEnabled) {
-					Gl.glDisable(Gl.GL_LIGHTING); LightingEnabled = true;
+					Gl.glDisable(Gl.GL_LIGHTING); LightingEnabled = false; // TODO: was 'true' before
 				}
 				OptionLighting = false;
 				if (!BlendEnabled) {
@@ -663,7 +664,7 @@ namespace OpenBve {
 			} else if (Material.NighttimeTexture == null) {
 				float blend = inv255 * (float)Material.DaytimeNighttimeBlend + 1.0f - OptionLightingResultingAmount;
 				if (blend > 1.0f) blend = 1.0f;
-				factor = 1.0f - 0.8f * blend;
+				factor = 1.0f - 0.7f * blend;
 			} else {
 				factor = 1.0f;
 			}
@@ -2362,9 +2363,7 @@ namespace OpenBve {
 					"=debug",
 					"train plugin status: " + (TrainManager.PlayerTrain.Plugin != null ? (TrainManager.PlayerTrain.Plugin.PluginValid ? "ok" : "error") : "n/a"),
 					"train plugin message: " + (TrainManager.PlayerTrain.Plugin != null ? (TrainManager.PlayerTrain.Plugin.PluginMessage != null ? TrainManager.PlayerTrain.Plugin.PluginMessage : "n/a") : "n/a"),
-                    "Train " + 0 + " is at " + TrainManager.Trains[0].Cars[0].RearAxle.Follower.TrackPosition.ToString() + " State: " + TrainManager.Trains[0].State.ToString(),
-                    "Train " + 1 + " is at " + TrainManager.Trains[1].Cars[0].RearAxle.Follower.TrackPosition.ToString() + " State: " + TrainManager.Trains[1].State.ToString(),
-                    "Train " + 2 + " is at " + TrainManager.Trains[2].Cars[0].RearAxle.Follower.TrackPosition.ToString() + " State: " + TrainManager.Trains[2].State.ToString(),
+                    "number of trains: " + (TrainManager.Trains.Length),
 					Game.InfoDebugString ?? ""
 				};
 				double x = 4.0;

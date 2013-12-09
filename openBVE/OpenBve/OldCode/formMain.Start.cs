@@ -675,7 +675,7 @@ namespace OpenBve {
 
 		// start
 		private void buttonStart_Click(object sender, EventArgs e) {
-			if (Result.RouteFile != null & Result.TrainFolder != null & !IsBusy()) {
+			if (Result.RouteFile != null & Result.TrainFolder != null) {
 				if (System.IO.File.Exists(Result.RouteFile) & System.IO.Directory.Exists(Result.TrainFolder)) {
 					Result.Start = true;
 					this.Close();

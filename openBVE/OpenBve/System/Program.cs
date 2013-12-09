@@ -157,7 +157,27 @@ namespace OpenBve {
 			// --- start the actual program ---
 			if (result.Start) {
 				if (Initialize()) {
-					MainLoop.StartLoopEx(result);
+					#if !DEBUG
+					try {
+						#endif
+						MainLoop.StartLoopEx(result);
+						#if !DEBUG
+					} catch (Exception ex) {
+						bool found = false;
+						for (int i = 0; i < TrainManager.Trains.Length; i++) {
+							if (TrainManager.Trains[i] != null && TrainManager.Trains[i].Plugin != null) {
+								if (TrainManager.Trains[i].Plugin.LastException != null) {
+									MessageBox.Show("The train plugin " + TrainManager.Trains[i].Plugin.PluginTitle + " caused a runtime exception: " + TrainManager.Trains[i].Plugin.LastException.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Hand);
+									found = true;
+									break;
+								}
+							}
+						}
+						if (!found) {
+							MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Hand);
+						}
+					}
+					#endif
 				}
 				Deinitialize();
 			}

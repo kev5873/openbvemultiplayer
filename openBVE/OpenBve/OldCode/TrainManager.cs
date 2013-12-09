@@ -494,15 +494,11 @@ namespace OpenBve {
 
 		// move car
 		internal static void MoveCar(Train Train, int CarIndex, double Delta, double TimeElapsed) {
-            bool disposeCheck = Train.State != TrainState.Disposed;
-            if (disposeCheck)
-            {
+			if (Train.State != TrainState.Disposed) {
 				TrackManager.UpdateTrackFollower(ref Train.Cars[CarIndex].FrontAxle.Follower, Train.Cars[CarIndex].FrontAxle.Follower.TrackPosition + Delta, true, true);
-                if (disposeCheck)
-                {
+				if (Train.State != TrainState.Disposed) {
 					TrackManager.UpdateTrackFollower(ref Train.Cars[CarIndex].RearAxle.Follower, Train.Cars[CarIndex].RearAxle.Follower.TrackPosition + Delta, true, true);
-                    if (disposeCheck)
-                    {
+					if (Train.State != TrainState.Disposed) {
 						TrackManager.UpdateTrackFollower(ref Train.Cars[CarIndex].BeaconReceiver, Train.Cars[CarIndex].BeaconReceiver.TrackPosition + Delta, true, true);
 					}
 				}
@@ -1090,6 +1086,7 @@ namespace OpenBve {
 				}
 			}
 			Train.Cars[CarIndex].CurrentCarSection = SectionIndex;
+			UpdateTrainObjects(Train, CarIndex, 0.0, true);
 		}
 
 		// update car section element

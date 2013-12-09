@@ -21,13 +21,17 @@ def handler(clientsock,addr, user):
 			data = clientsock.recv(buffer)
 			if not data: break
 			users[user] = float(data)
+			genStr = ""
 			for i in range(len(users)):
 				time.sleep(1.0)
 				print str(i) , " : " , users[i]
 				if user == i:
-					clientsock.send(str(i) + ":" + str(users[i]) + ":M") #ME
+					genStr = genStr + str(i) + ":" + str(users[i]) + ":M;" #ME
+				elif(i == (len(users) - 1)):
+					genStr = genStr + str(i) + ":" + str(users[i]) + ":Y" #LAST
 				else:
-					clientsock.send(str(i) + ":" + str(users[i]) + ":Y") #YOU
+					genStr = genStr + str(i) + ":" + str(users[i]) + ":Y;" #YOU
+			clientsock.send(genStr)
 	except Exception, e:
 		print e
 		users[user] = 0
@@ -39,7 +43,7 @@ if __name__=='__main__':
 	serversock = socket(AF_INET, SOCK_STREAM)
 	serversock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 	serversock.bind(ADDR)
-	serversock.listen(5)
+	serversock.listen(4)
 	print 'OpenBVE Multiplayer Server v0.1 | Codename Lexington |'
 	print 'Listening on' ,host, '| Port :', port
 	while 1:

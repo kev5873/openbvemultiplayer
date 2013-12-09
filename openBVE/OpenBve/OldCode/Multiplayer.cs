@@ -8,6 +8,22 @@ using System.Threading;
 namespace OpenBve.OldCode
 {
 
+    class PlayerObject
+    {
+        public int userID = 0;
+        public double position = 0;
+        public bool isItMe = false;
+
+        public PlayerObject(string uid, string pos, string me)
+        {
+            userID = Convert.ToInt32(uid);
+            position = Convert.ToDouble(pos);
+            if (me == "M")
+                isItMe = true;
+
+        }
+    }
+
     class Multiplayer
     {
         string host = "127.0.0.1";
@@ -15,14 +31,13 @@ namespace OpenBve.OldCode
         TcpClient client = null;
         bool connected = false;
         public double myPosition = 0;
-        int[] players = new int[3];
+        public double myID = 0;
+        public List<PlayerObject> players = new List<PlayerObject>();
+        public int totalPlayers = 0;
+        bool firstResponse = true;
 
         public void connect()
         {
-            for (int i = 0; i < players.Length; i++)
-            {
-                players[i] = 0;
-            }
             try
             {
                 client = new TcpClient(host, port);
@@ -37,11 +52,9 @@ namespace OpenBve.OldCode
 
         public void disconnect()
         {
-            if (connected)
-            {
-                client.Close();
-                connected = false;
-            }
+            client.Close();
+            connected = false;
+            Environment.Exit(0);
         }
 
         public void refreshData()
@@ -66,7 +79,88 @@ namespace OpenBve.OldCode
                 Int32 bytes = stream.Read(data, 0, data.Length);
                 responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
 
-                string[] playerData = responseData.Split(':');
+                if (firstResponse)
+                {
+                    string[] returnObjects = responseData.Split(';');
+                    for (int i = 0; i < returnObjects.Length; i++)
+                    {
+                        string[] playerData = returnObjects[i].Split(':');
+                        
+                        if (playerData[0] == "")
+                        {
+                            // Do nothing
+                        }
+                        else
+                        {
+                            players.Add(new PlayerObject(playerData[0], playerData[1], playerData[2]));
+                        }
+                    }
+                    totalPlayers = returnObjects.Length;
+                    firstResponse = !firstResponse;
+                }
+                else
+                {
+                    string[] returnObjects = responseData.Split(';');
+                    if (totalPlayers < returnObjects.Length)
+                    {
+                        players.Clear();
+                        for (int i = 0; i < returnObjects.Length; i++)
+                        {
+                            string[] playerData = returnObjects[i].Split(':');
+                            if (playerData[0] == "")
+                            {
+                                // Do nothing
+                            }
+                            else
+                            {
+                                players.Add(new PlayerObject(playerData[0], playerData[1], playerData[2]));
+                            }
+                        }
+                        totalPlayers = returnObjects.Length;
+                    }
+                    else // Update player positions
+                    {
+                        for (int i = 0; i < returnObjects.Length; i++)
+                        {
+                            string[] playerData = returnObjects[i].Split(':');
+                            if (playerData[0] == "")
+                            {
+                                // Do nothing
+                            }
+                            else
+                            {
+                                PlayerObject thatPlayer = players.Find(
+                                    delegate(PlayerObject theP)
+                                    {
+                                        return theP.userID == Convert.ToInt32(playerData[0]);
+                                    }
+                                );
+                                thatPlayer.position = Convert.ToDouble(playerData[1]);
+                            }
+                        }
+                    }
+
+                    double largestPosition = 1;
+                    Int32 highestIndex = 1;
+                    for (int i = 0; i < players.Count; i++)
+                    {
+                        if (!players[i].isItMe)
+                        {
+                            Game.AddDebugMessage(Convert.ToString(players[i].position), 5.0);
+                            if (players[i].position > myPosition)
+                            {
+                                moveTrain(players[i].position, 0);
+                                highestIndex = i;
+                                largestPosition = players[i].position;
+                            }
+                            if (players[highestIndex].position == 0)
+                            {
+                                moveTrain(1000000, 0);
+                            }
+                        }
+                    }
+
+                }
 
                 Game.AddDebugMessage(responseData, 5.0);
                 if (responseData == "Error: Server Full")
@@ -75,5 +169,19 @@ namespace OpenBve.OldCode
                 }
             }
         }
+
+        private void moveTrain(double position,Int32 index)
+        {
+            double amtMove;
+            amtMove = position - Double.Parse(TrainManager.Trains[index].Cars[0].RearAxle.Follower.TrackPosition.ToString());
+            for (int i = 1; i < TrainManager.Trains.Length; i++)
+            {
+                for (int j = 0; j < TrainManager.Trains[index].Cars.Length; j++)
+                {
+                    TrainManager.MoveCar(TrainManager.Trains[index], j, amtMove, 0.01);
+                }
+            }
+        }
+
     }
 }

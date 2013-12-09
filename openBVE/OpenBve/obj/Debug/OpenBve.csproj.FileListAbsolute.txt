@@ -10,3 +10,14 @@ C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\bin\Debug
 C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\bin\Debug\OpenBveApi.xml
 C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\OpenBve.exe
 C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBve\obj\Debug\OpenBve.pdb
+D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.exe
+D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.pdb
+D:\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBve.exe
+D:\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBve.pdb
+D:\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBveApi.dll
+D:\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBveApi.pdb
+D:\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBveApi.xml
+D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.csprojResolveAssemblyReference.cache
+D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.formImage.resources
+D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.formMain.resources
+D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.csproj.GenerateResource.Cache

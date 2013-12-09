@@ -110,12 +110,15 @@
     <Compile Include="Graphics\Textures.TextureOrigin.cs">
       <DependentUpon>Textures.cs</DependentUpon>
     </Compile>
-    <Compile Include="OldCode\Multiplayer.cs" />
     <Compile Include="OldCode\formImage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OldCode\formImage.Designer.cs">
       <DependentUpon>formImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OldCode\formMain.AddOns.cs">
+      <DependentUpon>formMain.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="OldCode\formMain.Controls.cs">
       <DependentUpon>formMain.cs</DependentUpon>
@@ -126,10 +129,6 @@
     </Compile>
     <Compile Include="OldCode\formMain.Designer.cs">
       <DependentUpon>formMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OldCode\formMain.GetAddOns.cs">
-      <DependentUpon>formMain.cs</DependentUpon>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="OldCode\formMain.Options.cs">
       <DependentUpon>formMain.cs</DependentUpon>
@@ -152,6 +151,7 @@
     </Compile>
     <Compile Include="OldCode\Loading.cs" />
     <Compile Include="OldCode\MainLoop.cs" />
+    <Compile Include="OldCode\Multiplayer.cs" />
     <Compile Include="OldCode\NetPlugin.cs">
       <DependentUpon>PluginManager.cs</DependentUpon>
     </Compile>
@@ -173,25 +173,10 @@
     <Compile Include="OldParsers\XObjectParser.cs" />
     <Compile Include="OldParsers\PanelCfgParser.cs" />
     <Compile Include="System\FileSystem.cs" />
-    <Compile Include="System\Internet.cs" />
     <Compile Include="System\ManagedContent.cs" />
-    <Compile Include="System\Gzip.cs" />
     <Compile Include="System\Host.cs" />
     <Compile Include="System\Joysticks.cs" />
-    <Compile Include="System\ManagedContent.Functions.cs">
-      <DependentUpon>ManagedContent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="System\ManagedContent.Install.cs">
-      <DependentUpon>ManagedContent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="System\ManagedContent.Remove.cs">
-      <DependentUpon>ManagedContent.cs</DependentUpon>
-    </Compile>
     <Compile Include="System\Plugins.cs" />
-    <Compile Include="System\Tar.cs" />
-    <Compile Include="System\ManagedContent.Versions.cs">
-      <DependentUpon>ManagedContent.cs</DependentUpon>
-    </Compile>
     <Compile Include="System\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="OldCode\formImage.resx">

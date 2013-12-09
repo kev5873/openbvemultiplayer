@@ -790,10 +790,10 @@ namespace OpenBve {
 				for (int j = 0; j < n; j++) {
 					if (i == 0 & lowercap) {
 						// lower cap
-						Builder.Faces[f + n + i].Vertices[j] = new World.MeshFaceVertex(v + 2 * (n - j - 1));
+						Builder.Faces[f + n + i].Vertices[j] = new World.MeshFaceVertex(v + 2 * j + 1);
 					} else {
 						// upper cap
-						Builder.Faces[f + n + i].Vertices[j] = new World.MeshFaceVertex(v + 2 * j + 1);
+						Builder.Faces[f + n + i].Vertices[j] = new World.MeshFaceVertex(v + 2 * (n - j - 1));
 					}
 				}
 			}

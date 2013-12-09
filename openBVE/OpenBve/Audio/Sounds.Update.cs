@@ -274,7 +274,11 @@ namespace OpenBve {
 			if (World.CameraMode == World.CameraViewMode.Interior | World.CameraMode == World.CameraViewMode.InteriorLookAhead | World.CameraMode == World.CameraViewMode.Exterior) {
 				TrainManager.Car car = TrainManager.PlayerTrain.Cars[TrainManager.PlayerTrain.DriverCar];
 				OpenBveApi.Math.Vector3 diff = car.FrontAxle.Follower.WorldPosition - car.RearAxle.Follower.WorldPosition;
-				listenerVelocity = car.Specs.CurrentSpeed * OpenBveApi.Math.Vector3.Normalize(diff);
+				if (diff.IsNullVector()) {
+					listenerVelocity = car.Specs.CurrentSpeed * OpenBveApi.Math.Vector3.Forward;
+				} else {
+					listenerVelocity = car.Specs.CurrentSpeed * OpenBveApi.Math.Vector3.Normalize(diff);
+				}
 			} else {
 				listenerVelocity = OpenBveApi.Math.Vector3.Null;
 			}

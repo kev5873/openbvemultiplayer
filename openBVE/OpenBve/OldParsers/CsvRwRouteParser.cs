@@ -1636,7 +1636,8 @@ namespace OpenBve {
 								case "route.runinterval":
 								case "train.interval":
 									{
-										if (!PreviewOnly) {
+                                        if (!PreviewOnly)
+                                        {
 											double[] intervals = new double[Arguments.Length];
 											for (int k = 0; k < Arguments.Length; k++) {
 												if (!Interface.TryParseDoubleVb6(Arguments[k], out intervals[k])) {
@@ -1644,7 +1645,7 @@ namespace OpenBve {
 												}
 											}
 											Array.Sort<double>(intervals);
-											Game.PrecedingTrainTimeDeltas = intervals;
+                                            Game.PrecedingTrainTimeDeltas = intervals;
 										}
 									} break;
 								case "train.velocity":
