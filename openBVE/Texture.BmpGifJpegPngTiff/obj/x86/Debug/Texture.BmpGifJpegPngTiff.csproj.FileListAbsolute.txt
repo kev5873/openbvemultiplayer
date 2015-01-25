@@ -1,0 +1,5 @@
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.BmpGifJpegPngTiff\bin\Debug\Texture.BmpGifJpegPngTiff.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.BmpGifJpegPngTiff\bin\Debug\Texture.BmpGifJpegPngTiff.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.BmpGifJpegPngTiff\obj\x86\Debug\Texture.BmpGifJpegPngTiff.csprojResolveAssemblyReference.cache
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.BmpGifJpegPngTiff\obj\x86\Debug\Texture.BmpGifJpegPngTiff.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.BmpGifJpegPngTiff\obj\x86\Debug\Texture.BmpGifJpegPngTiff.pdb

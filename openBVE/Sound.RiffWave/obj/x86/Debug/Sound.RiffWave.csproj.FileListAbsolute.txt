@@ -1,0 +1,5 @@
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Sound.RiffWave\bin\Debug\Sound.RiffWave.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Sound.RiffWave\bin\Debug\Sound.RiffWave.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Sound.RiffWave\obj\x86\Debug\Sound.RiffWave.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Sound.RiffWave\obj\x86\Debug\Sound.RiffWave.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Sound.RiffWave\obj\x86\Debug\Sound.RiffWave.csprojResolveAssemblyReference.cache

@@ -1,0 +1,3 @@
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\bin\Release\OpenBveApi.xml
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\bin\Release\OpenBveApi.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\obj\x86\Release\OpenBveApi.dll
