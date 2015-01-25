@@ -34,7 +34,6 @@ namespace OpenBve {
 						string type = ManagedContent.GetMetadata(pairs, "type", null, null);
 						if (type != null && type.Equals("route", StringComparison.OrdinalIgnoreCase)) {
 							string country = ManagedContent.GetMetadata(pairs, "country", CurrentLanguageCode, Interface.GetInterfaceString("getaddons_other_countries"));
-							string flag = GetFlagFromEnUsCountry(ManagedContent.GetMetadata(pairs, "country", "en-US", null), "folder");
 							string city = ManagedContent.GetMetadata(pairs, "city", CurrentLanguageCode, Interface.GetInterfaceString("getaddons_other_cities"));
 							string operatorx = ManagedContent.GetMetadata(pairs, "operator", CurrentLanguageCode, Interface.GetInterfaceString("getaddons_other_operators"));
 							string caption = ManagedContent.GetMetadata(pairs, "caption", CurrentLanguageCode, System.IO.Path.GetFileName(packageDirectory));
@@ -42,8 +41,6 @@ namespace OpenBve {
 							string entry = ManagedContent.GetMetadata(pairs, "entry", null, string.Empty);
 							string path = OpenBveApi.Path.CombineDirectory(packageDirectory, entry);
 							TreeNode node = treeviewRouteAddOns.Nodes.Add(country);
-							node.ImageKey = flag;
-							node.SelectedImageKey = flag;
 							node = node.Nodes.Add(city);
 							node.ImageKey = "folder";
 							node.SelectedImageKey = "folder";
@@ -58,15 +55,6 @@ namespace OpenBve {
 					}
 				}
 			}
-			Group(treeviewRouteAddOns.Nodes);
-			if (keywords.Length == 0) {
-				foreach (TreeNode node in treeviewRouteAddOns.Nodes) {
-					Flatten(node.Nodes, true);
-				}
-			} else {
-				Flatten(treeviewRouteAddOns.Nodes, true);
-			}
-			Expand(treeviewRouteAddOns.Nodes, treeviewRouteAddOns.Height / treeviewRouteAddOns.ItemHeight - 1);
 			treeviewRouteAddOns.Sort();
 			treeviewRouteAddOns.EndUpdate();
 		}
@@ -155,7 +143,6 @@ namespace OpenBve {
 						string type = ManagedContent.GetMetadata(pairs, "type", null, null);
 						if (type != null && type.Equals("train", StringComparison.OrdinalIgnoreCase)) {
 							string country = ManagedContent.GetMetadata(pairs, "country", CurrentLanguageCode, Interface.GetInterfaceString("getaddons_other_countries"));
-							string flag = GetFlagFromEnUsCountry(ManagedContent.GetMetadata(pairs, "country", "en-US", null), "folder");
 							string city = ManagedContent.GetMetadata(pairs, "city", CurrentLanguageCode, Interface.GetInterfaceString("getaddons_other_cities"));
 							string operatorx = ManagedContent.GetMetadata(pairs, "operator", CurrentLanguageCode, Interface.GetInterfaceString("getaddons_other_operators"));
 							string caption = ManagedContent.GetMetadata(pairs, "caption", CurrentLanguageCode, System.IO.Path.GetFileName(packageDirectory));
@@ -163,8 +150,6 @@ namespace OpenBve {
 							string entry = ManagedContent.GetMetadata(pairs, "entry", null, string.Empty);
 							TreeNode node;
 							node = treeviewTrainAddOns.Nodes.Add(country);
-							node.ImageKey = flag;
-							node.SelectedImageKey = flag;
 							node = node.Nodes.Add(city);
 							node.ImageKey = "folder";
 							node.SelectedImageKey = "folder";
@@ -180,15 +165,6 @@ namespace OpenBve {
 					}
 				}
 			}
-			Group(treeviewTrainAddOns.Nodes);
-			if (keywords.Length == 0) {
-				foreach (TreeNode node in treeviewTrainAddOns.Nodes) {
-					Flatten(node.Nodes, true);
-				}
-			} else {
-				Flatten(treeviewTrainAddOns.Nodes, true);
-			}
-			Expand(treeviewTrainAddOns.Nodes, treeviewTrainAddOns.Height / treeviewTrainAddOns.ItemHeight - 1);
 			treeviewTrainAddOns.Sort();
 			treeviewTrainAddOns.EndUpdate();
 		}
