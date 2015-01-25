@@ -21,3 +21,14 @@ D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.csprojResolveAssemblyRef
 D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.formImage.resources
 D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.formMain.resources
 D:\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.csproj.GenerateResource.Cache
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.exe
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.csprojResolveAssemblyReference.cache
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.formImage.resources
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.formMain.resources
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Debug\OpenBve.csproj.GenerateResource.Cache
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBve.exe
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBve.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBveApi.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBveApi.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\bin\Debug\OpenBveApi.xml

@@ -1,0 +1,4 @@
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Release\OpenBve.csprojResolveAssemblyReference.cache
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Release\OpenBve.formImage.resources
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Release\OpenBve.formMain.resources
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBve\obj\Release\OpenBve.csproj.GenerateResource.Cache

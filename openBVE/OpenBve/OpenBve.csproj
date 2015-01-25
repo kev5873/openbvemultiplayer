@@ -116,10 +116,6 @@
     <Compile Include="OldCode\formImage.Designer.cs">
       <DependentUpon>formImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="OldCode\formMain.AddOns.cs">
-      <DependentUpon>formMain.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="OldCode\formMain.Controls.cs">
       <DependentUpon>formMain.cs</DependentUpon>
       <SubType>Form</SubType>

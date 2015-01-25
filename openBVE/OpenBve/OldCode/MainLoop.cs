@@ -13,8 +13,6 @@ namespace OpenBve {
 		private static bool Quit = false;
 		private static int TimeFactor = 1;
 		private static ViewPortMode CurrentViewPortMode = ViewPortMode.Scenery;
-        private static Thread dataThread = null;
-        private static OpenBve.OldCode.Multiplayer connection = new OpenBve.OldCode.Multiplayer();
 
 		// --------------------------------
 
@@ -269,12 +267,6 @@ namespace OpenBve {
 					Game.AddDebugMessage(warnings.ToString() + " warning(s)", 10.0);
 				}
 
-                /* MULTIPLAYER TESTING */
-                connection.connect();
-                dataThread = new Thread(new ThreadStart(connection.refreshData));
-                dataThread.Start();
-
-
 			}
 //			if (TrainManager.PlayerTrain.Plugin != null && TrainManager.PlayerTrain.Plugin is Win32Plugin) {
 //				Game.AddDebugMessage("The train uses a Win32 plugin.", 10.0);
@@ -433,8 +425,6 @@ namespace OpenBve {
 						// quit
 					case Sdl.SDL_QUIT:
 						Quit = true;
-                        dataThread.Abort();
-                        connection.disconnect();
 						return;
 						// resize
 					case Sdl.SDL_VIDEORESIZE:
@@ -710,8 +700,6 @@ namespace OpenBve {
 													case Game.MenuTag.Quit:
 														// quit
 														Quit = true;
-                                                        connection.disconnect();
-                                                        dataThread.Abort();
 														break;
 												}
 											} else if (a[Game.CurrentMenuSelection[j]] is Game.MenuSubmenu) {
