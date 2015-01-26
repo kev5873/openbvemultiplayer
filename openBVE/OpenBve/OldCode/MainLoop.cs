@@ -270,7 +270,7 @@ namespace OpenBve {
 				}
 
                 /* MULTIPLAYER TESTING */
-                connection.connect();
+                connection.connect(Interface.CurrentOptions.ipAddress, Convert.ToInt32(Interface.CurrentOptions.port));
                 dataThread = new Thread(new ThreadStart(connection.refreshData));
                 dataThread.Start();
 

@@ -6,7 +6,7 @@ buffer = 256
 host = '127.0.0.1'# must be input parameter @TODO
 port = 4567 # must be input parameter @TODO
 currentWorking = 0
-users = [0,0,0]
+users = [0,0,0,0,0,0]
 
 def response(key):
 	return 'Server response: ' + key
@@ -21,6 +21,8 @@ def handler(clientsock,addr, user):
 			data = clientsock.recv(buffer)
 			if not data: break
 			users[user] = float(data)
+			if float(users[user]) == float(0):
+				clientsock.close()
 			genStr = ""
 			for i in range(len(users)):
 				time.sleep(1.0)

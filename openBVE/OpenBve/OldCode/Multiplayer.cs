@@ -26,8 +26,6 @@ namespace OpenBve.OldCode
 
     class Multiplayer
     {
-        string host = "127.0.0.1";
-        int port = 4567;
         TcpClient client = null;
         bool connected = false;
         public double myPosition = 0;
@@ -36,7 +34,7 @@ namespace OpenBve.OldCode
         public int totalPlayers = 0;
         bool firstResponse = true;
 
-        public void connect()
+        public void connect(string host, int port)
         {
             try
             {
@@ -52,6 +50,11 @@ namespace OpenBve.OldCode
 
         public void disconnect()
         {
+            myPosition = 0;
+            Byte[] data = System.Text.Encoding.ASCII.GetBytes(myPosition.ToString());
+            NetworkStream stream = client.GetStream();
+            // Send the message to the connected TcpServer.
+            stream.Write(data, 0, data.Length);
             client.Close();
             connected = false;
             Environment.Exit(0);
@@ -153,7 +156,7 @@ namespace OpenBve.OldCode
                                 highestIndex = i;
                                 largestPosition = players[i].position;
                             }
-                            if (players[highestIndex].position == 0)
+                            if (players[highestIndex].position < 1)
                             {
                                 moveTrain(1000000, 0);
                             }

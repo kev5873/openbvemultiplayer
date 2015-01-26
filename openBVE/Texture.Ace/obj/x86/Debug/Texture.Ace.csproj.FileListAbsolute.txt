@@ -1,0 +1,5 @@
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.Ace\bin\Debug\Texture.Ace.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.Ace\bin\Debug\Texture.Ace.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.Ace\obj\x86\Debug\Texture.Ace.csprojResolveAssemblyReference.cache
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.Ace\obj\x86\Debug\Texture.Ace.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\Texture.Ace\obj\x86\Debug\Texture.Ace.pdb

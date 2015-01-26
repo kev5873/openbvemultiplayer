@@ -33,8 +33,6 @@ namespace OpenBve {
 		private Image JoystickImage = null;
 		private string[] LanguageFiles = new string[0];
 		private string CurrentLanguageCode = "en-US";
-
-		
 		
 		// ====
 		// form
@@ -575,6 +573,8 @@ namespace OpenBve {
 			Interface.CurrentOptions.SoundNumber = (int)Math.Round(updownSoundNumber.Value);
 			Interface.CurrentOptions.ShowWarningMessages = checkboxWarningMessages.Checked;
 			Interface.CurrentOptions.ShowErrorMessages = checkboxErrorMessages.Checked;
+            Interface.CurrentOptions.ipAddress = ipAddress.Text;
+            Interface.CurrentOptions.port = port.Text;
 			Interface.CurrentOptions.RouteFolder = textboxRouteFolder.Text;
 			Interface.CurrentOptions.TrainFolder = textboxTrainFolder.Text;
 			Interface.CurrentOptions.MainMenuWidth = this.WindowState == FormWindowState.Maximized ? -1 : this.Size.Width;

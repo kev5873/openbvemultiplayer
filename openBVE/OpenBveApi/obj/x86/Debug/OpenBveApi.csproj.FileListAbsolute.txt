@@ -4,3 +4,9 @@ C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\bin\De
 C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\obj\x86\Debug\OpenBveApi.dll
 C:\Users\KevinAir\Desktop\openbve1420source\SourceCode\openBVE\OpenBveApi\obj\x86\Debug\OpenBveApi.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\bin\Debug\OpenBveApi.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\bin\Debug\OpenBveApi.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\bin\Debug\OpenBveApi.xml
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\obj\x86\Debug\OpenBveApi.csprojResolveAssemblyReference.cache
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\obj\x86\Debug\OpenBveApi.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveApi\obj\x86\Debug\OpenBveApi.pdb

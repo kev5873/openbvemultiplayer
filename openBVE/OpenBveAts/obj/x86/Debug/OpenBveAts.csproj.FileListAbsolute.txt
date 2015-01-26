@@ -1,0 +1,5 @@
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveAts\bin\Debug\OpenBveAts.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveAts\bin\Debug\OpenBveAts.pdb
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveAts\obj\x86\Debug\OpenBveAts.csprojResolveAssemblyReference.cache
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveAts\obj\x86\Debug\OpenBveAts.dll
+C:\Users\KevinAMD\Documents\openbvemultiplayer\openBVE\OpenBveAts\obj\x86\Debug\OpenBveAts.pdb

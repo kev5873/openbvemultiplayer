@@ -119,6 +119,8 @@ namespace OpenBve {
 			internal string ProxyUrl;
 			internal string ProxyUserName;
 			internal string ProxyPassword;
+            internal string ipAddress;
+            internal string port;
 			internal Options() {
 				this.LanguageCode = "en-US";
 				this.FullscreenMode = false;
@@ -167,6 +169,8 @@ namespace OpenBve {
 				this.ProxyUrl = string.Empty;
 				this.ProxyUserName = string.Empty;
 				this.ProxyPassword = string.Empty;
+                this.ipAddress = string.Empty;
+                this.port = string.Empty;
 			}
 		}
 		internal static Options CurrentOptions;
@@ -471,6 +475,18 @@ namespace OpenBve {
 										Interface.CurrentOptions.RouteEncodings[n].Codepage = a;
 										Interface.CurrentOptions.RouteEncodings[n].Value = Value;
 									} break;
+                                case "multiplayer":
+                                    {
+                                        switch (Key)
+                                        {
+                                            case "ip_address":
+                                                Interface.CurrentOptions.ipAddress = Value;
+                                                break;
+                                            case "port":
+                                                Interface.CurrentOptions.port = Value;
+                                                break;
+                                        }
+                                    } break;
 								case "trainencodings":
 									{
 										int a = System.Text.Encoding.UTF8.CodePage;
@@ -608,6 +624,10 @@ namespace OpenBve {
 			Builder.AppendLine("url = " + CurrentOptions.ProxyUrl);
 			Builder.AppendLine("username = " + CurrentOptions.ProxyUserName);
 			Builder.AppendLine("password = " + CurrentOptions.ProxyPassword);
+            Builder.AppendLine();
+            Builder.AppendLine("[multiplayer]");
+            Builder.AppendLine("ip_address = " + CurrentOptions.ipAddress);
+            Builder.AppendLine("port = " + CurrentOptions.port);
 			Builder.AppendLine();
 			Builder.AppendLine("[folders]");
 			Builder.AppendLine("route = " + CurrentOptions.RouteFolder);
