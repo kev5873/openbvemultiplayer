@@ -94,6 +94,11 @@
             this.labelStartTitleBackground = new System.Windows.Forms.Label();
             this.labelFillerTwo = new System.Windows.Forms.Label();
             this.panelOptions = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.port = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ipAddress = new System.Windows.Forms.TextBox();
             this.panelOptionsRight = new System.Windows.Forms.Panel();
             this.groupboxDistance = new System.Windows.Forms.GroupBox();
             this.comboboxMotionBlur = new System.Windows.Forms.ComboBox();
@@ -240,11 +245,6 @@
             this.labelInfoTop = new System.Windows.Forms.Label();
             this.timerInstall = new System.Windows.Forms.Timer(this.components);
             this.timerFilter = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ipAddress = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.port = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxLogo)).BeginInit();
             this.panelStart.SuspendLayout();
             this.groupboxTrainSelection.SuspendLayout();
@@ -275,6 +275,7 @@
             this.tabpageRouteSettings.SuspendLayout();
             this.panelRouteEncoding.SuspendLayout();
             this.panelOptions.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panelOptionsRight.SuspendLayout();
             this.groupboxDistance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updownDistance)).BeginInit();
@@ -311,7 +312,6 @@
             this.panelJoystick.SuspendLayout();
             this.panelKeyboard.SuspendLayout();
             this.panelInfo.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelFillerOne
@@ -1205,7 +1205,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(255)))), ((int)(((byte)(243)))));
-            this.panelOptions.Controls.Add(this.groupBox1);
             this.panelOptions.Controls.Add(this.panelOptionsRight);
             this.panelOptions.Controls.Add(this.panelOptionsLeft);
             this.panelOptions.Controls.Add(this.pictureboxLanguage);
@@ -1218,8 +1217,56 @@
             this.panelOptions.Size = new System.Drawing.Size(640, 584);
             this.panelOptions.TabIndex = 0;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.port);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.ipAddress);
+            this.groupBox1.Location = new System.Drawing.Point(0, 390);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(310, 74);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Multiplayer";
+            // 
+            // port
+            // 
+            this.port.Location = new System.Drawing.Point(76, 42);
+            this.port.Name = "port";
+            this.port.Size = new System.Drawing.Size(100, 20);
+            this.port.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Port:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "IP Address:";
+            // 
+            // ipAddress
+            // 
+            this.ipAddress.Location = new System.Drawing.Point(75, 16);
+            this.ipAddress.Name = "ipAddress";
+            this.ipAddress.Size = new System.Drawing.Size(221, 20);
+            this.ipAddress.TabIndex = 0;
+            // 
             // panelOptionsRight
             // 
+            this.panelOptionsRight.Controls.Add(this.groupBox1);
             this.panelOptionsRight.Controls.Add(this.groupboxDistance);
             this.panelOptionsRight.Controls.Add(this.groupboxControls);
             this.panelOptionsRight.Controls.Add(this.groupboxVerbosity);
@@ -1227,7 +1274,7 @@
             this.panelOptionsRight.Controls.Add(this.groupboxSound);
             this.panelOptionsRight.Location = new System.Drawing.Point(332, 72);
             this.panelOptionsRight.Name = "panelOptionsRight";
-            this.panelOptionsRight.Size = new System.Drawing.Size(316, 384);
+            this.panelOptionsRight.Size = new System.Drawing.Size(316, 472);
             this.panelOptionsRight.TabIndex = 17;
             // 
             // groupboxDistance
@@ -2978,52 +3025,6 @@
             this.labelInfoTop.Size = new System.Drawing.Size(160, 2);
             this.labelInfoTop.TabIndex = 0;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.port);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.ipAddress);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 539);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(640, 45);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Multiplayer";
-            // 
-            // ipAddress
-            // 
-            this.ipAddress.Location = new System.Drawing.Point(75, 16);
-            this.ipAddress.Name = "ipAddress";
-            this.ipAddress.Size = new System.Drawing.Size(221, 20);
-            this.ipAddress.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "IP Address:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(317, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Port:";
-            // 
-            // port
-            // 
-            this.port.Location = new System.Drawing.Point(353, 16);
-            this.port.Name = "port";
-            this.port.Size = new System.Drawing.Size(100, 20);
-            this.port.TabIndex = 3;
-            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3091,6 +3092,8 @@
             this.panelRouteEncoding.ResumeLayout(false);
             this.panelOptions.ResumeLayout(false);
             this.panelOptions.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panelOptionsRight.ResumeLayout(false);
             this.groupboxDistance.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.updownDistance)).EndInit();
@@ -3141,8 +3144,6 @@
             this.panelKeyboard.ResumeLayout(false);
             this.panelKeyboard.PerformLayout();
             this.panelInfo.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

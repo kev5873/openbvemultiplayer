@@ -41,6 +41,7 @@ namespace OpenBve.OldCode
                 client = new TcpClient(host, port);
                 client.SendBufferSize = 1024;
                 connected = true;
+                Game.AddDebugMessage("Connected to " + host, 15.0);
             }
             catch (Exception)
             {
@@ -164,8 +165,6 @@ namespace OpenBve.OldCode
                     }
 
                 }
-
-                Game.AddDebugMessage(responseData, 5.0);
                 if (responseData == "Error: Server Full")
                 {
                     disconnect();

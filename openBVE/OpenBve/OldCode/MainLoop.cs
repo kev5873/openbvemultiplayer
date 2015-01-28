@@ -15,6 +15,7 @@ namespace OpenBve {
 		private static ViewPortMode CurrentViewPortMode = ViewPortMode.Scenery;
         private static Thread dataThread = null;
         private static OpenBve.OldCode.Multiplayer connection = new OpenBve.OldCode.Multiplayer();
+        private static bool Multiplayer = false;
 
 		// --------------------------------
 
@@ -270,9 +271,17 @@ namespace OpenBve {
 				}
 
                 /* MULTIPLAYER TESTING */
-                connection.connect(Interface.CurrentOptions.ipAddress, Convert.ToInt32(Interface.CurrentOptions.port));
-                dataThread = new Thread(new ThreadStart(connection.refreshData));
-                dataThread.Start();
+                if (Interface.CurrentOptions.ipAddress != "" && Convert.ToInt32(Interface.CurrentOptions.port) != 0)
+                {
+                    connection.connect(Interface.CurrentOptions.ipAddress, Convert.ToInt32(Interface.CurrentOptions.port));
+                    dataThread = new Thread(new ThreadStart(connection.refreshData));
+                    dataThread.Start();
+                    Multiplayer = true;
+                }
+                else
+                {
+                    Multiplayer = false;
+                }
 
 
 			}
@@ -433,8 +442,11 @@ namespace OpenBve {
 						// quit
 					case Sdl.SDL_QUIT:
 						Quit = true;
-                        dataThread.Abort();
-                        connection.disconnect();
+                        if (Multiplayer)
+                        {
+                            dataThread.Abort();
+                            connection.disconnect();
+                        }
 						return;
 						// resize
 					case Sdl.SDL_VIDEORESIZE:
@@ -710,8 +722,11 @@ namespace OpenBve {
 													case Game.MenuTag.Quit:
 														// quit
 														Quit = true;
-                                                        connection.disconnect();
-                                                        dataThread.Abort();
+                                                        if (Multiplayer)
+                                                        {
+                                                            connection.disconnect();
+                                                            dataThread.Abort();
+                                                        }
 														break;
 												}
 											} else if (a[Game.CurrentMenuSelection[j]] is Game.MenuSubmenu) {

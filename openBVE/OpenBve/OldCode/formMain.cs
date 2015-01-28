@@ -896,7 +896,7 @@ namespace OpenBve {
 
 		// homepage
 		private void linkHomepage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-			const string Url = "http://odakyufan.zxq.net/openbve/index.html";
+			const string Url = "http://www.bvestation.com";
 			try {
 				System.Diagnostics.Process.Start(Url);
 			} catch (Exception ex) {
