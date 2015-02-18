@@ -19,9 +19,9 @@ There are a large number of caveats that go with playing multiplayer.
 
 Because BVE is inherently a single line, it is impossible to simulate a "network" of trains/routes.  Do not request this feature, it is impossible.
 
-Players must be connected in a sequence, each with a delay in order to prevent collisions.  The first player should connect, and begin moving.  The second player should then connect, x amount of minutes/or distance after the first player.  This second player will see the location of the first player if they get too close. Same for the other players.
+Players must be connected in a sequence, each with a delay in order to prevent collisions.  The first player should connect, and begin moving.  The second player should then connect after an x amount of minutes/or distance after the first player.  This second player will see the location of the first player if they get too close. Same for the other players.
 
-The pretrain is still controlled by the AI.
+The pretrain is still controlled by the AI, but its position gets forced to change by Multiplayer.
 
 This assumes that all players are using the exact same route.  Do not use a different route with different players.  1 Server, 1 Route, everyone plays the same.
 
