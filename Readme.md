@@ -5,6 +5,28 @@ This is a fork of the original OpenBve, the original website has been taken down
 
 This add-on will enable multiplayer support.
 
+History
+---
+BVEStation used to have other versions of a multiplayer implementation.  The first version was a very buggy client-server model, with little to no interaction with the game itself.  The second version utilized a centralized approach for a MMO styled experience.  The version in this repository once again utilizes the client-server model, because of the low numbers of players, and increased costs of keeping a centralized server up.
+
+How it works
+---
+Using the game's pretrain, which is usually set by the RunInterval in the route file, Multiplayer takes over this pretrain and reads data from the closest player in the front.  This data is then applied to the pretrain, which simulates the location of the other player.
+
+Caveats
+---
+There are a large number of caveats that go with playing multiplayer.
+
+Because BVE is inherently a single line, it is impossible to simulate a "network" of trains/routes.  Do not request this feature, it is impossible.
+
+Players must be connected in a sequence, each with a delay in order to prevent collisions.  The first player should connect, and begin moving.  The second player should then connect, x amount of minutes/or distance after the first player.  This second player will see the location of the first player if they get too close. Same for the other players.
+
+The pretrain is still controlled by the AI.
+
+This assumes that all players are using the exact same route.  Do not use a different route with different players.  1 Server, 1 Route, everyone plays the same.
+
+The first player when done, should disconnect when the run is over.  Players in between other players should not disconnect (although this is now mitigated, this was a major problem in the first version of multiplayer)
+
 Important Files
 ---
 
