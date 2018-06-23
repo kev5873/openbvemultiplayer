@@ -1,9 +1,9 @@
 OpenBVE Multiplayer
 ---
 
-This is a fork of the original OpenBve, the original website has been taken down, and there are no longer any official websites to download it from.  Since this product came out of [BVEStation.com](http://www.bvestation.com), we recommend you visit [BVEStation](http://www.bvestation.com) for a copy of the game.
+This is a fork of the original OpenBve, the original website has been taken down, and there are no longer any official websites to download it from.
 
-This add-on will enable multiplayer support.
+This add-on enables multiplayer support.
 
 History
 ---
@@ -35,7 +35,7 @@ Included is the tcpServer.py, which is a server written in Python.  The client c
 
 License
 ---
-OpenBVE is in public domain, but this multiplayer add-on is not.  This means tcpServer.py and Multiplayer.cs are not in public domain.  These files are instead under the [Creative Commons License](http://creativecommons.org/licenses/by-nc-sa/3.0/).  Please read it if you plan to make additional add-ons to this.
+OpenBVE is in public domain.  These modifications are also public domain.
 
 Feel free to fork this repo, submit a pull request, etc.
 
